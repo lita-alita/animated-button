@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect }from "react"
+import Button from './components/button';
+import Message from './components/message';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [clicked, setClicked] = useState(false);
+
+  if (clicked) return (
+    <div className="App-body">
+      <Message/>
     </div>
   );
+
+  return (
+    <div className="App-body">
+      <Button clickHandler={() => setClicked(true)}/>
+    </div>
+  ) 
 }
 
 export default App;
